@@ -48,12 +48,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'frontpage#index'
 
-  get 'frontpage/index'
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Rubyrpg::BaseApi => '/api'
   mount GrapeSwaggerRails::Engine, at: '/apidoc'
 
-  get '/about' => 'frontpage#about'
-  get '/game' => 'frontpage#game'
+  get 'about' => 'frontpage#about'
+  get 'game' => 'frontpage#game'
 end
