@@ -26,15 +26,15 @@
 #
 
 class User < ActiveRecord::Base
-	has_many :players, foreign_key: 'user_id', :inverse_of => :user
-	accepts_nested_attributes_for :players, :allow_destroy => true
+	has_many :players, foreign_key: 'user_id', inverse_of: :user
+	accepts_nested_attributes_for :players, allow_destroy: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
          :validatable
 
-  RailsAdmin.config {|c| c.label_methods << :user_name}
+  RailsAdmin.config { |c| c.label_methods << :user_name }
 
   def self.find_by_login(name)
   	user = User.find_by(user_name: name)

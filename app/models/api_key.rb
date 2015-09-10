@@ -17,7 +17,6 @@
 #
 
 class ApiKey < ActiveRecord::Base
-  
   before_create :generate_access_token
   before_create :set_expiration
   belongs_to :user
@@ -35,7 +34,6 @@ class ApiKey < ActiveRecord::Base
   end
 
   def set_expiration
-    self.expires_at = DateTime.now+30
+    self.expires_at = DateTime.now + 30
   end
-
 end

@@ -32,8 +32,8 @@
 #
 
 class Player < ActiveRecord::Base
-	belongs_to :user, foreign_key: 'user_id', :inverse_of => :players
-	accepts_nested_attributes_for :user, :allow_destroy => true
+	belongs_to :user, foreign_key: 'user_id', inverse_of: :players
+	accepts_nested_attributes_for :user, allow_destroy: true
 
-	RailsAdmin.config {|c| c.label_methods << :name}
+	RailsAdmin.config { |c| c.label_methods << :name }
 end
