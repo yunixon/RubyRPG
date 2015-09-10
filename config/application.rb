@@ -20,13 +20,8 @@ module Rubyrpg
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.assets.precompile += %w( rubyrpg.js )
-    
     # Grape API settings
     config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
     config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
-
-    # Quiet Asset settings
-    # config.quiet_assets = false
   end
 end
