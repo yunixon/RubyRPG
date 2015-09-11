@@ -1,3 +1,3 @@
 include Sprig::Helpers
 
-sprig[Races]
+sprig [User,Race,Virtue]
