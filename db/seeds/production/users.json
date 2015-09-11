@@ -1,4 +1,4 @@
-# This information needs to be changed before ' rake db:seed ' is run
+// This information needs to be changed before ' rake db:seed ' is run
 {
 	"records":[
 		{
