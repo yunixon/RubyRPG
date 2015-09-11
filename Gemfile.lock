@@ -235,8 +235,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -283,7 +281,6 @@ DEPENDENCIES
   sprig (~> 0.1)
   spring
   thin
-  turbolinks
   uglifier
   warden
 
