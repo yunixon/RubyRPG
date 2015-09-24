@@ -15,9 +15,13 @@ RubyRPG.Preloader.prototype = {
 		this.game.load.atlasJSONHash('world', 'game/images/world.png', 'game/images/world.json');
 		this.load.image('logo', 'game/images/logo.png');
 
-		this.game.load.tilemap('MenuMap', 'game/maps/mainmenu.json', null, Phaser.Tilemap.TILED_JSON);
+		this.game.load.tilemap('World', 'game/maps/world.json', null, Phaser.Tilemap.TILED_JSON);
 
 		this.game.load.spritesheet('player', 'game/images/player.png', 32, 48, 16);
+		this.game.load.spritesheet('btnContinue', 'game/images/btn-continue.png', 193, 32);
+		this.game.load.spritesheet('btnNewGame', 'game/images/btn-new-game.png', 193, 32);
+		this.game.load.spritesheet('btnOptions', 'game/images/btn-options.png', 193, 32);
+		this.game.load.spritesheet('btnExitGame', 'game/images/btn-exit.png', 193, 32);
 	},
 	create: function() {
 		this.game.state.start('MainMenu');

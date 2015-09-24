@@ -1,14 +1,32 @@
 RubyRPG.MainMenu = function(game) {};
 RubyRPG.MainMenu.prototype = {
   create: function() {
+    var bar = this.game.add.graphics();
+    bar.beginFill(0x000000, 0.2);
+    bar.drawRect(0, 100, this.game.width, 100);
+    var style = { font: 'bold 32px Arial', fill: '#fff', boundsAlignH: 'center', boundsAlignV: 'middle' };
+    //  The Text is positioned at 0, 100
+    text = this.game.add.text(0, 0, 'Main Menu', style);
+    text.setShadow(3, 3, 'rgba(0, 0, 0, 0.5)', 2);
+    //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
+    text.setTextBounds(0, 100, this.game.width, 100);
+
     // TODO Make a method to check if logged in user has a preexisting character and then display 'Continue' button.
-    // this.startNewGame();
-    this.loadGame();
+    btnContinue = this.game.add.button(this.game.world.centerX - 59, 200, 'btnContinue', this.loadGame, this, 2, 1, 0);
+    btnNewGame = this.game.add.button(this.game.world.centerX - 59, 240, 'btnNewGame', this.newGame, this, 2, 1, 0);
+    btnContinue = this.game.add.button(this.game.world.centerX - 59, 280, 'btnOptions', this.showOptions, this, 2, 1, 0);
+    btnNewGame = this.game.add.button(this.game.world.centerX - 59, 320, 'btnExitGame', this.exitGame, this, 2, 1, 0);
   },
-  startNewGame: function() {
+  newGame: function() {
     this.game.state.start('NewGame');
   },
   loadGame: function() {
     this.game.state.start('LoadGame');
+  },
+  showOptions: function() {
+
+  },
+  exitGame: function() {
+
   }
 };
