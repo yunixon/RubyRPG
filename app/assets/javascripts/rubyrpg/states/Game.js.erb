@@ -50,9 +50,9 @@ RubyRPG.Game.prototype = {
     // Enable world physics
     this.game.physics.startSystem(Phaser.Physics.P2JS);
 
-    // Load up MainMenu Tilemap and Image data
-    this.map = this.game.add.tilemap('MenuMap');
-    this.map.addTilesetImage('MainMenu', 'world');
+    // Load up World Tilemap and Image data
+    this.map = this.game.add.tilemap('World');
+    this.map.addTilesetImage('World', 'world');
 
     // Create our map layers
     this.ground = this.map.createLayer('Ground');
