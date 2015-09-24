@@ -53,7 +53,7 @@ group :development do
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'annotate'
-  gem 'rack-mini-profiler'
+  gem 'rack-mini-profiler', require: false
 end
 
 group :production do
