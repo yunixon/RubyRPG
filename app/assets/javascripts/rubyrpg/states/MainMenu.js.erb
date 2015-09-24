@@ -1,63 +1,12 @@
 RubyRPG.MainMenu = function(game) {};
 RubyRPG.MainMenu.prototype = {
-	create: function() {
-	//TODO Make a method to check if logged in user has a preexisting character and then display 'Continue' button.
-
-        // Stage background color
-        this.game.stage.backgroundColor = '#000';
-
-        // Enable world physics
-        this.game.physics.startSystem(Phaser.Physics.P2JS);
-
-        // Load up MainMenu Tilemap and Image data
-        this.map = this.game.add.tilemap('MenuMap');
-        this.map.addTilesetImage('MainMenu', 'world');
-
-        // Create our map layers
-        this.ground = this.map.createLayer('Ground');
-        this.walls = this.map.createLayer('Walls');
-        this.misc = this.map.createLayer('Misc');
-
-        // Set world bounds to the map size
-        this.game.world.setBounds(0, 0, 416, 352);
-        this.ground.resizeWorld();
-
-        // Create and insert our player model
-        this.player = new Player(this.game, 300,200);
-        this.game.add.existing(this.player);
-
-        // Force camera to follow player
-        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_TOPDOWN_TIGHT);
-
-	},
-    update: function() {
-        // Make sure player body has no velocity in any direction
-        this.player.body.setZeroVelocity();
-        // Begin player controls and movement animations
-        if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
-        {
-            this.player.body.moveLeft(800);
-            this.player.animations.play('walkLeft',15,false);
-        }
-        else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
-        {
-            this.player.body.moveRight(800);
-            this.player.animations.play('walkRight',15,false);
-        }
-
-        if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
-        {
-            this.player.body.moveUp(800);
-            this.player.animations.play('walkUp',15,false);
-        }
-        else if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN))
-        {
-            this.player.body.moveDown(800);
-            this.player.animations.play('walkDown',15,false);
-        }
+  create: function() {
+    // TODO Make a method to check if logged in user has a preexisting character and then display 'Continue' button.
+    // this.startNewGame();
+    this.loadGame();
   },
-  startGame: function() {
-	this.game.state.start('NewGame');
+  startNewGame: function() {
+    this.game.state.start('NewGame');
   },
   loadGame: function() {
     this.game.state.start('LoadGame');

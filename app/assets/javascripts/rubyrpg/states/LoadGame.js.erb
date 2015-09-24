@@ -1,9 +1,7 @@
-RubyRPG.LoadGame = function(game) {
-
-};
+RubyRPG.LoadGame = function(game) {};
 RubyRPG.LoadGame.prototype = {
 	create: function() {
-
-
+    // TODO Load previous state
+    this.game.state.start('Game');
 	}
 };
