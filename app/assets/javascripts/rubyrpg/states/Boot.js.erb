@@ -1,6 +1,20 @@
 var RubyRPG = {};
 RubyRPG.Boot = function(game) {};
 RubyRPG.Boot.prototype = {
+  init: function() {
+    //this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
+    //this.game.scale.pageAlignHorizontally = true;
+    //this.game.scale.pageAlignVertically = true;
+    //this.game.scale.refresh()
+    this.input.maxPointers = 1;
+    this.stage.disableVisibilityChange = true;
+    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    this.scale.setMinMax(480, 260, 1024, 768);
+    this.scale.pageAlignHorizontally = true;
+    this.scale.pageAlignVertically = true;
+
+    this.game.stage.backgroundColor = '#16181a';
+  },
 	preload: function() {
 		this.load.image('preloaderBar', 'game/images/loadingFull.png');
 	},
