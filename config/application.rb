@@ -21,7 +21,7 @@ module Rubyrpg
     # config.i18n.default_locale = :de
 
     # Grape API settings
-    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
-    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+    config.paths.add File.join('app', 'api', 'rubyrpg'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'api', 'rubyrpg', '*')]
   end
 end
