@@ -1,7 +1,7 @@
-module Rubyrpg
+module Rpg
 	module V1
 		class VirtueInfo < Grape::API
-			include Rubyrpg::V1::Defaults
+			include Rpg::V1::Defaults
 
 			resources :virtue do
 				desc 'Returns a specific virtue by its ID'

@@ -1,4 +1,4 @@
-module Rubyrpg
+module Rpg
   module V1
     module Defaults
       extend ActiveSupport::Concern

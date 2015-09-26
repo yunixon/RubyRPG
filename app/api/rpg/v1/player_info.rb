@@ -1,7 +1,7 @@
-module Rubyrpg
+module Rpg
 	module V1
 		class PlayerInfo < Grape::API
-			include Rubyrpg::V1::Defaults
+			include Rpg::V1::Defaults
 
 			# Helps find a player the user is playing by name
 			#
