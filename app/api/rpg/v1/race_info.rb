@@ -1,7 +1,7 @@
-module Rubyrpg
+module Rpg
 	module V1
 		class RaceInfo < Grape::API
-			include Rubyrpg::V1::Defaults
+			include Rpg::V1::Defaults
 
 			resources :race do
 				desc 'Returns a specific race by its ID'

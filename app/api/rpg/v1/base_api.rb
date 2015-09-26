@@ -1,7 +1,7 @@
-module Rubyrpg
+module Rpg
 	module V1
 		class BaseApi < Grape::API
-			include Rubyrpg::V1::Defaults
+			include Rpg::V1::Defaults
 
 			helpers do
 		    def authenticate!
@@ -24,10 +24,10 @@ module Rubyrpg
 			end
 
 			# Seperate the API into smaller files
-			mount Rubyrpg::V1::PlayerInfo => '/player'
-			mount Rubyrpg::V1::RaceInfo => '/raceinfo'
-			mount Rubyrpg::V1::VirtueInfo => '/virtueinfo'
-			mount Rubyrpg::V1::Dice => '/dice'
+			mount Rpg::V1::PlayerInfo => '/player'
+			mount Rpg::V1::RaceInfo => '/raceinfo'
+			mount Rpg::V1::VirtueInfo => '/virtueinfo'
+			mount Rpg::V1::Dice => '/dice'
 
 			# /api/auth
 			resource :auth do

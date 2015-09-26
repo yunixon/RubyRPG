@@ -2,7 +2,7 @@ require 'grape-swagger'
 
 class API < Grape::API
   # Mount RubyRPG API
-  mount Rubyrpg::V1::BaseApi => '/rubyrpg/v1'
+  mount Rpg::V1::BaseApi => '/rpg/v1'
 
   # Mount the swagger docs
   add_swagger_documentation(
