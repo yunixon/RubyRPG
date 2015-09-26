@@ -49,7 +49,8 @@ Rails.application.routes.draw do
   root 'frontpage#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  mount Rubyrpg::BaseApi => '/api'
+  #mount Rubyrpg::BaseApi => '/'
+  mount API => '/api'
   mount GrapeSwaggerRails::Engine, at: '/apidoc'
 
   get 'about' => 'frontpage#about'
