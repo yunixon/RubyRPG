@@ -9,10 +9,27 @@ module Rpg
         #formatter :json,
         #  Grape::Formatter::ActiveModelSerializers
 
+        before do
+          error!('401 Unauthorized', 401) unless authenticated?
+        end
+
         helpers do
           #def permitted_params
           #  @permitted_params ||= declared(params, include_missing: false)
           #end
+
+          def warden
+            env['warden']
+          end
+
+          def authenticated?
+            return true if warden.authenticated?
+            params[:api_token] && @user = User.find_by_api_token(params[:api_token])
+          end
+
+          def current_user
+            warden.user || @user
+          end
 
           def logger
             Rails.logger
@@ -36,11 +53,6 @@ module Rpg
         rescue_from ActiveRecord::RecordInvalid do |e|
           error_response(message: e.message, status: 422)
         end
-
-        # HTTP header based authentication
-        #before do
-        #  error!('Unauthorized', 401) unless headers['Authorization'] == "some token"
-        #end
       end
     end
   end
