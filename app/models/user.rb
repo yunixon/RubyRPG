@@ -18,9 +18,11 @@
 #  admin                  :boolean          default(FALSE)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  api_token              :string           default(""), not null
 #
 # Indexes
 #
+#  index_users_on_api_token             (api_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
@@ -36,7 +38,22 @@ class User < ActiveRecord::Base
 
   RailsAdmin.config { |c| c.label_methods << :user_name }
 
+  before_save :ensure_api_token
+
   def self.find_by_login(name)
   	user = User.find_by(user_name: name)
+  end
+
+  def ensure_api_token
+    self.api_token = generate_api_token
+  end
+
+  private
+
+  def generate_api_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(api_token: token).first
+    end
   end
 end

@@ -6,13 +6,15 @@
 			"email":"admin@example.com",
 			"password":"changeme",
 			"user_name":"Admin",
-			"admin":true
+			"admin":true,
+			"api_token":"zXSKi9VZ2St54-agAizj"
 		},
 		{
 			"sprig_id":2,
 			"email":"user@example.com",
 			"password":"changeme",
-			"user_name":"Test User"
+			"user_name":"Test User",
+			"api_token":"w3ft18x62oBWbZ7dnG1p"
 		}
 	]
 }

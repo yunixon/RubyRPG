@@ -6,7 +6,8 @@
 			"email":"admin@example.com",
 			"password":"changeme",
 			"user_name":"Admin",
-			"admin":true
+			"admin":true,
+      "api_token":"zXSKi9VZ2St54-agAizj"
 		}
 	]
 }
