@@ -1,7 +1,26 @@
 RubyRPG.LoadGame = function(game) {};
 RubyRPG.LoadGame.prototype = {
 	create: function() {
-    // TODO Load previous state
-    this.game.state.start('Game');
-	}
+    var bar = this.game.add.graphics();
+    bar.beginFill(0x000000, 0.2);
+    bar.drawRect(0, 100, this.game.width, 100);
+    var style = { font: 'bold 32px Arial', fill: '#fff', boundsAlignH: 'center', boundsAlignV: 'middle' };
+    // The Text is positioned at 0, 100
+    text = this.game.add.text(0, 0, 'Choose your player', style);
+    text.setShadow(3, 3, 'rgba(0, 0, 0, 0.5)', 2);
+    // We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
+    text.setTextBounds(0, 100, this.game.width, 100);
+
+    var my_playersJSON = this.game.cache.getJSON('my_players');
+    var button;
+    for (i in my_playersJSON)
+    {
+      this.game.add.text(100, 200 + 40*i, my_playersJSON[i].name, { fill: '#ffffff' });
+      button = this.game.add.button(this.game.world.centerX - 59, 200 + 40*i, 'btnContinue', this.setPlayer, this, 2, 1, 0);
+      button.player = my_playersJSON[i]
+    }
+	},
+  setPlayer: function(button) {
+    this.game.state.start('Game', true, false, button.player);
+  }
 };

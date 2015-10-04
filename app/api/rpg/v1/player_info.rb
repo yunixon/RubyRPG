@@ -15,32 +15,36 @@ module Rpg
 
 			desc 'Create a player'
 			params do
-				#use :token
 				requires :name, type: String, desc: 'Player Name'
 			end
 			post :create do
-				authenticate!
 				Player.create!({
 					user_id: current_user.id,
 					name: params[:name]
-					})
+				})
 			end
 
 			desc 'Delete a player'
 			params do
-				#use :token
 				requires :name, type: String, desc: 'Player Name'
 			end
 
 			post :delete do
-				authenticate!
 				player = current_player(params[:name])
-				if player == nil
+				if player.nil?
 					{ deleted: false}
 				else
 					{ deleted: true}
 					player.destroy
 				end
+			end
+
+			desc 'Current player'
+			params do
+				requires :name, type: String, desc: 'Player Name'
+			end
+			get :current_player do
+				current_player(params[:name])
 			end
 		end
 	end
