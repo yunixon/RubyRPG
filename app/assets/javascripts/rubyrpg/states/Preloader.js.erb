@@ -1,6 +1,8 @@
 RubyRPG.Preloader = function(game) {};
 RubyRPG.Preloader.prototype = {
 	preload: function() {
+		var api_version = 'v1'
+
 		this.preloadBar = this.add.sprite(this.game.width/2, this.game.height/2, 'preloaderBar');
 		this.preloadBar.anchor.setTo(0.5, 0.5);
 
@@ -16,6 +18,10 @@ RubyRPG.Preloader.prototype = {
 		this.game.load.spritesheet('btnNewGame', 'game/images/btn-new-game.png', 193, 32);
 		this.game.load.spritesheet('btnOptions', 'game/images/btn-options.png', 193, 32);
 		this.game.load.spritesheet('btnExitGame', 'game/images/btn-exit.png', 193, 32);
+
+		this.game.load.json('races', 'api/rpg/' + api_version + '/raceinfo/races.json');
+		this.game.load.json('virtues', 'api/rpg/' + api_version + '/virtueinfo/virtues.json');
+		this.game.load.json('my_players', 'api/rpg/' + api_version + '/me/players.json');
 	},
 	create: function() {
 		this.game.state.start('MainMenu');

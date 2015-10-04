@@ -6,11 +6,19 @@
 //      this.player = new Player(this.game, x, y);
 //		this.game.add.existing(this.player);
 //
-var Player = function(game, x, y, frame) {
- 	Phaser.Sprite.call(this, game, x, y, 'player', frame);
+var Player = function(game, player, x, y, frame) {
+    this.name = player.name;
+    this.race = player.race;
+    // ...
 
- 	// Center sprite
-	this.anchor.setTo(0.5, 0.5);
+    // Center sprite
+    Phaser.Sprite.call(this, game, x, y, 'player', frame);
+    this.anchor.setTo(0.5, 0.5);
+
+    // Label player name
+    this.label_name = game.add.text(0, 0, this.name, { font: 'bold 12px Arial', fill: '#000' });
+    this.label_name.anchor.set(0.5, 2);
+    this.addChild(this.label_name);
 
 	// Set up animations
     this.animations.add('walkDown',[0,1,2,3],6,true);
