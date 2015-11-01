@@ -42,6 +42,11 @@ gem 'orm_adapter', '~> 0.5.0'
 gem 'devise'
 gem 'warden'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'sidekiq'
+gem 'sidekiq-client-cli'
+gem 'sinatra', require: nil
+gem 'redis'
+gem 'whenever', require: false
 
 group :development do
   gem 'spring'

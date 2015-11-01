@@ -39,6 +39,7 @@
 # Routes for GrapeSwaggerRails::Engine:
 #   root GET  /           grape_swagger_rails/application#index
 #
+require 'sidekiq/web'
 
 Rails.application.routes.draw do
   devise_for :users
@@ -49,6 +50,7 @@ Rails.application.routes.draw do
   root 'frontpage#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount Sidekiq::Web => '/sidekiq'
   mount API => '/api'
   mount GrapeSwaggerRails::Engine, at: '/apidoc'
 
