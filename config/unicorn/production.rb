@@ -1,21 +1,21 @@
 # paths
-app_path = '/home/apps/ruby_mmo_maker'
-working_directory "#{app_path}/current"
-pid               "#{app_path}/current/tmp/pids/unicorn.pid"
+app_path = '/home/apps/ruby_mmo_maker/current'
+working_directory app_path
+pid               "#{app_path}/tmp/pids/unicorn.pid"
 
 # listen
-listen "#{app_path}/current/tmp/sockets/unicorn.sock", backlog: 512
+listen "#{app_path}/tmp/sockets/unicorn.sock", backlog: 512
 
 # workers
 worker_processes 2
 
 # logging
-stderr_path "#{app_path}/current/log/unicorn.stderr.log"
-stdout_path "#{app_path}/current/log/unicorn.stdout.log"
+stderr_path "#{app_path}/log/unicorn.stderr.log"
+stdout_path "#{app_path}/log/unicorn.stdout.log"
 
 # use correct Gemfile on restarts
 before_exec do |server|
-  ENV['BUNDLE_GEMFILE'] = "#{app_path}/current/Gemfile"
+  ENV['BUNDLE_GEMFILE'] = "#{app_path}/Gemfile"
 end
 preload_app true
 timeout 60
