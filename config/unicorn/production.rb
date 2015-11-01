@@ -20,9 +20,6 @@ end
 preload_app true
 timeout 60
 
-# Spawn unicorn master worker for user apps (group: apps)
-user 'webgate', 'webgate'
-
 before_fork do |server, worker|
   ActiveRecord::Base.connection.disconnect! if defined?(ActiveRecord::Base)
 
