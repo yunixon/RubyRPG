@@ -1,17 +1,18 @@
 # paths
 app_path = "/home/deploy/apps/ruby_mmo_maker/current"
+shared = "/home/deploy/apps/ruby_mmo_maker/shared"
 working_directory app_path
-pid               "#{app_path}/tmp/pids/unicorn.pid"
+pid "#{shared}/tmp/pids/unicorn.pid"
 
 # listen
-listen "#{app_path}/tmp/sockets/unicorn.sock", backlog: 512
+listen "#{shared}/tmp/sockets/unicorn.sock", backlog: 512
 
 # workers
 worker_processes 2
 
 # logging
-stderr_path "#{app_path}/log/unicorn.stderr.log"
-stdout_path "#{app_path}/log/unicorn.stdout.log"
+stderr_path "#{shared}/log/unicorn.stderr.log"
+stdout_path "#{shared}/log/unicorn.stdout.log"
 
 # use correct Gemfile on restarts
 before_exec do |server|
