@@ -40,6 +40,10 @@ class User < ActiveRecord::Base
 
   before_save :ensure_api_token
 
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
+
   def self.find_by_login(name)
   	user = User.find_by(user_name: name)
   end
