@@ -1,5 +1,5 @@
 # paths
-app_path = File.expand_path('../../', __FILE__)
+app_path = "/home/deploy/apps/ruby_mmo_maker/current"
 working_directory app_path
 pid               "#{app_path}/tmp/pids/unicorn.pid"
 
