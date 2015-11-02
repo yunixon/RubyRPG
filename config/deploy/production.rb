@@ -1,6 +1,6 @@
 set :stage, :production
 set :rails_env, :production
-set :branch, 'capistrano'
+set :branch, :master
 
 set :deploy_to, "/home/deploy/apps/#{fetch(:application)}"
 
