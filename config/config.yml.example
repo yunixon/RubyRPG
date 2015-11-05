@@ -1,21 +1,39 @@
 development:
   REDIS_URL: 'redis://localhost:6379'
 
+  smtp_data:
+    address: localhost
+    port: 1025
+    domain: yourdomain.com
+
 test:
   REDIS_URL: 'redis://localhost:6379'
+
+  smtp_data:
+    address: localhost
+    port: 1025
+    domain: yourdomain.com
 
 staging:
   REDIS_URL: 'redis://localhost:6379'
 
+  smtp_data:
+    user_name: your_sendgrid_username
+    password: your_sendgrid_password
+    domain: yourdomain.com
+    address: smtp.sendgrid.net
+    port: 587
+    authentication: plain
+    tls: true
+
 production:
   REDIS_URL: 'redis://localhost:6379'
 
-  ActionMailer::Base.smtp_settings = {
-    user_name: 'your_sendgrid_username',
-    password: 'your_sendgrid_password',
-    domain: 'yourdomain.com',
-    address: 'smtp.sendgrid.net',
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
+  smtp_data:
+    user_name: your_sendgrid_username
+    password: your_sendgrid_password
+    domain: yourdomain.com
+    address: smtp.sendgrid.net
+    port: 587
+    authentication: plain
+    tls: true
