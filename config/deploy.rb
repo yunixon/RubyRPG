@@ -4,7 +4,6 @@ lock '3.4.0'
 set :application, 'ruby_mmo_maker'
 set :repo_url, 'git@github.com:yunixon/RubyRPG.git'
 set :user, 'deploy'
-set :use_sudo, false
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -22,7 +21,7 @@ set :scm, :git
 # set :log_level, :debug
 
 # Default value for :pty is false
-set :pty, true
+# set :pty, false
 
 # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/config.yml', 'config/sidekiq.yml')
@@ -39,21 +38,15 @@ set :keep_releases, 3
 set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
 
 namespace :deploy do
-  %w[start stop restart].each do |command|
-    desc "#{command} unicorn server"
-    task command, roles: :app, except: {no_release: true} do
-      run "/etc/init.d/unicorn_#{application} #{command}"
+  task :setup_config do
+    on roles(:all) do
+      sudo "ln -nfs #{shared_path}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
+      sudo "ln -nfs #{shared_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
     end
-  end
-
-  task :setup_config, roles: :app do
-    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
-    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     puts "Now edit #{shared_path}/config/database.yml and add your username and password"
   end
-  after 'deploy:setup', 'deploy:setup_config'
 
   task :restart do
     invoke 'unicorn:restart'
