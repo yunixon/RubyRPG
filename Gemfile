@@ -18,9 +18,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -42,6 +39,11 @@ gem 'orm_adapter', '~> 0.5.0'
 gem 'devise'
 gem 'warden'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'sidekiq'
+gem 'sidekiq-client-cli'
+gem 'sinatra', require: nil
+gem 'redis'
+gem 'whenever', require: false
 
 group :development do
   gem 'spring'
@@ -54,6 +56,13 @@ group :development do
   gem 'better_errors'
   gem 'annotate'
   gem 'rack-mini-profiler', require: false
+  # Deployment
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano-sidekiq', require: false
+  gem 'capistrano3-unicorn'
 end
 
 group :production do

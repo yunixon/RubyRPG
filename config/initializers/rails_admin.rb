@@ -33,5 +33,5 @@ RailsAdmin.config do |config|
   end
 
   # Include specific models (exclude the others):
-  config.included_models = ['User','Player','Armor','Shield','ProtectiveItem','Feat','Spell','SpecialAbility','Possession','Race','Virtue']
+  config.included_models = ['Event','User','Player','Armor','Shield','ProtectiveItem','Feat','Spell','SpecialAbility','Possession','Race','Virtue']
 end
