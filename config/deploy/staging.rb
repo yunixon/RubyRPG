@@ -1,6 +1,6 @@
 set :stage, :staging
 set :rails_env, :staging
-set :branch, :master
+set :branch, 'staging-env'
 
 set :full_app_name, 'staging_ruby_mmo_maker'
 

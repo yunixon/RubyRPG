@@ -14,3 +14,13 @@ set :sidekiq_env, :production
 set :deploy_to, "/home/deploy/apps/#{fetch(:full_app_name)}"
 
 server '188.227.75.14', user: 'deploy', roles: %w{web app db worker}
+
+namespace :deploy do
+  task :setup_config do
+    on roles(:all) do
+      sudo "ln -nfs #{shared_path}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:full_app_name)}"
+      sudo "ln -nfs #{shared_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:full_app_name)}"
+      sudo "ln -nfs #{shared_path}/config/sidekiq_#{fetch(:full_app_name)}.conf /etc/init/sidekiq_#{fetch(:full_app_name)}.conf"
+    end
+  end
+end
