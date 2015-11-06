@@ -5,7 +5,7 @@ working_directory app_path
 pid "#{shared}/tmp/pids/unicorn.pid"
 
 # listen
-listen "#{shared}/tmp/sockets/unicorn.sock", backlog: 512
+listen "#{shared}/tmp/sockets/unicorn_staging.sock", backlog: 512
 
 # workers
 worker_processes 2
