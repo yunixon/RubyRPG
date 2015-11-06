@@ -65,7 +65,7 @@ group :development do
   gem 'capistrano3-unicorn'
 end
 
-group :production do
+group :production, :staging do
   # For Heroku deployment
   gem 'unicorn'
   gem 'rails_12factor'

@@ -13,6 +13,10 @@ test:
   <<: *local
   database: example_test
 
+staging:
+  <<: *local
+  database: example_staging
+
 production:
   <<: *local
   database: example_prod
