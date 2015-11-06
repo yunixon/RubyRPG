@@ -6,7 +6,6 @@ pid "#{shared}/tmp/pids/unicorn.pid"
 
 # listen
 listen "#{shared}/tmp/sockets/unicorn_staging.sock", backlog: 512
-listen "127.0.0.1:8080", tcp_nopush: true
 
 # workers
 worker_processes 2
