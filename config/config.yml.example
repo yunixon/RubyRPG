@@ -15,7 +15,7 @@ test:
     domain: yourdomain.com
 
 staging:
-  REDIS_URL: 'redis://localhost:6379'
+  REDIS_URL: 'redis://localhost:6379/1'
 
   smtp_data:
     user_name: your_sendgrid_username
@@ -27,7 +27,7 @@ staging:
     tls: true
 
 production:
-  REDIS_URL: 'redis://localhost:6379'
+  REDIS_URL: 'redis://localhost:6379/0'
 
   smtp_data:
     user_name: your_sendgrid_username
