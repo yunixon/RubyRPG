@@ -38,17 +38,6 @@ set :keep_releases, 3
 set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
 
 namespace :deploy do
-  task :setup_config do
-    on roles(:all) do
-      #sudo "ln -nfs #{shared_path}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
-      #sudo "ln -nfs #{shared_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
-      sudo "ln -nfs #{shared_path}/config/sidekiq_#{fetch(:application)}.conf /etc/init/sidekiq_#{fetch(:application)}.conf"
-    end
-    #run "mkdir -p #{shared_path}/config"
-    #put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
-    #puts "Now edit #{shared_path}/config/database.yml and add your username and password"
-  end
-
   task :restart do
     invoke 'unicorn:restart'
   end

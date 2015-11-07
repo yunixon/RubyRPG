@@ -1,15 +1,15 @@
-set :stage, :production
-set :rails_env, :production
+set :stage, :staging
+set :rails_env, :staging
 set :branch, :master
 
-set :full_app_name, 'ruby_mmo_maker'
+set :full_app_name, 'staging_ruby_mmo_maker'
 
 role :app, %w{deploy@188.227.75.14}
 role :web, %w{deploy@188.227.75.14}
 
 set :sidekiq_role, :app
 set :sidekiq_config, "#{shared_path}/config/sidekiq.yml"
-set :sidekiq_env, :production
+set :sidekiq_env, :staging
 
 set :deploy_to, "/home/deploy/apps/#{fetch(:full_app_name)}"
 
