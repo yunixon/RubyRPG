@@ -1,5 +1,6 @@
 development:
   REDIS_URL: 'redis://localhost:6379'
+  ROLLBAR_TOKEN: 'token'
 
   smtp_data:
     address: localhost
@@ -8,6 +9,7 @@ development:
 
 test:
   REDIS_URL: 'redis://localhost:6379'
+  ROLLBAR_TOKEN: 'token'
 
   smtp_data:
     address: localhost
@@ -16,6 +18,7 @@ test:
 
 staging:
   REDIS_URL: 'redis://localhost:6379/1'
+  ROLLBAR_TOKEN: 'token'
 
   smtp_data:
     user_name: your_sendgrid_username
@@ -28,6 +31,7 @@ staging:
 
 production:
   REDIS_URL: 'redis://localhost:6379/0'
+  ROLLBAR_TOKEN: 'token'
 
   smtp_data:
     user_name: your_sendgrid_username

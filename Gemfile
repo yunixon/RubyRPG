@@ -44,6 +44,7 @@ gem 'sidekiq-client-cli'
 gem 'sinatra', require: nil
 gem 'redis'
 gem 'whenever', require: false
+gem 'rollbar'
 
 group :development do
   gem 'spring'
