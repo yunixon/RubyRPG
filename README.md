@@ -46,7 +46,18 @@ bundle install
 ```
 rake db:migrate && rake db:seed
 rails s
+
+mailcatcher
 ```
+
+####Background jobs
+```
+redis-server
+sidekiq -C config/sidekiq.yml
+
+http://0.0.0.0:3000/sidekiq
+```
+
 ####Production
 ```
 rake db:migrate

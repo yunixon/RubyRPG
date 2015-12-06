@@ -41,6 +41,7 @@ gem 'devise'
 gem 'warden'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootswatch-rails'
+gem 'react-rails'
 gem 'sidekiq'
 gem 'sidekiq-client-cli'
 gem 'sinatra', require: nil
