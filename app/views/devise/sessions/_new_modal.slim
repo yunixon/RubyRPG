@@ -5,7 +5,7 @@
         button.close aria-hidden="true" data-dismiss="modal" type="button" &times;
         h4.modal-title Sign In
       .modal-body
-        = form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: 'login_user', role: 'form'}, remote: true) do |f|
+        = form_for(resource, as: resource_name, url: session_path(resource_name), html: { id: 'login_user', role: 'form'}, data: { type: :json }, remote: true) do |f|
           .error_messages
           .form-group
             - if devise_mapping.registerable?
